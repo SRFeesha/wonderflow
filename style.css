@@ -15,7 +15,6 @@ html {
     font-size: 16px;
     background-color: var(--color-primary);
     color: var(--color-neutral);
-
 }
 
 html,
@@ -23,6 +22,22 @@ body {
     margin: 0;
 }
 
+.base-grid {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    max-width: 900px;
+    grid-gap: 1.25rem;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+/* UTILITY */
+.wrapper {
+    max-width: 900px;
+    margin-left: auto;
+    margin-right: auto;
+}
 
 /* TYPOGRAPHY */
 p {
@@ -34,38 +49,57 @@ a {
     color: inherit;
 }
 
-a:hover {
+/* To change, cause it mess with the flex flow */
+a:hover:not(.btn-primary) {
     font-style: italic;
 }
 
 
 /* SECTIONS */
 header {
-    /* margin-top: var(--spacing-3); */
     display: flex;
     justify-content: space-between;
-    margin: var(--spacing-3) var(--spacing-5) 0;
+    margin-top: var(--spacing-3);
+    padding: 0 var(--spacing-5) 0;
     align-items: center;
+    position: sticky;
+    top: 0;
+    background-color: var(--color-primary);
 }
 
-section {
+/* section {
 
+} */
+
+#hero {
+    height: 550px;
 }
 
 
 /* ELEMENTS */
+.card {
+    /* grid-column: span 4; */
+    height: 357px;
+    background-color: #fff;
+    border-radius: .5rem;
+}
 
 .btn-primary {
+    padding: 1rem 2.5rem;
     background-color: var(--color-neutral);
-    font-size: 1rem;
     color: var(--color-primary);
     border-radius: .5rem;
-    padding: 1rem 2.5rem;
     text-transform: uppercase;
+    font-size: 1rem;
     line-height: 1;
     font-weight: 600;
 }
 
+.wave {
+    width: 100vw;
+    margin: 0;
+    margin-bottom: -6px; /* Don't understand why, but otherwise it place a little gap */
+}
 
 /* NAV */
 .logo {
@@ -74,8 +108,6 @@ section {
 
 nav {
     display: flex;
-    position: sticky;
-    top: 0;
 }
 
 nav > a:not(:last-child) {
@@ -84,3 +116,18 @@ nav > a:not(:last-child) {
 
 
 /* HERO */
+
+
+/* CONTENT */
+#content {
+    background-color: var(--color-neutral);
+    height: 1000px;
+}
+
+.card-grid {
+    grid-column: span 12;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    grid-gap: 3rem;
+}
