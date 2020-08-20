@@ -1,0 +1,86 @@
+html {
+    --color-primary: #F7C94B;
+    --color-neutral: #423D33;
+    --spacing-1: 8px;
+    --spacing-2: 16px;
+    --spacing-3: 32px;
+    --spacing-4: 48px;
+    --spacing-5: 64px;
+    --spacing-6: 96px;
+    --spacing-7: 128px;
+    --spacing-8: 156px;
+    --spacing-9: 192px;
+
+    font-family: 'Jost', sans-serif;
+    font-size: 16px;
+    background-color: var(--color-primary);
+    color: var(--color-neutral);
+
+}
+
+html,
+body {
+    margin: 0;
+}
+
+
+/* TYPOGRAPHY */
+p {
+    font-size: 1.25rem;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+a:hover {
+    font-style: italic;
+}
+
+
+/* SECTIONS */
+header {
+    /* margin-top: var(--spacing-3); */
+    display: flex;
+    justify-content: space-between;
+    margin: var(--spacing-3) var(--spacing-5) 0;
+    align-items: center;
+}
+
+section {
+
+}
+
+
+/* ELEMENTS */
+
+.btn-primary {
+    background-color: var(--color-neutral);
+    font-size: 1rem;
+    color: var(--color-primary);
+    border-radius: .5rem;
+    padding: 1rem 2.5rem;
+    text-transform: uppercase;
+    line-height: 1;
+    font-weight: 600;
+}
+
+
+/* NAV */
+.logo {
+    max-height: 3rem;
+}
+
+nav {
+    display: flex;
+    position: sticky;
+    top: 0;
+}
+
+nav > a:not(:last-child) {
+    margin-right: var(--spacing-5);
+}
+
+
+/* HERO */
