@@ -1,5 +1,6 @@
 html {
     --color-primary: #F7C94B;
+    --color-primary-lighter: #fce588;
     --color-neutral: #423D33;
     --spacing-1: 8px;
     --spacing-2: 16px;
@@ -15,6 +16,7 @@ html {
     font-size: 16px;
     background-color: var(--color-primary);
     color: var(--color-neutral);
+    overflow-x: hidden;
 }
 
 html,
@@ -22,24 +24,39 @@ body {
     margin: 0;
 }
 
-.base-grid {
-    display: grid;
-    grid-template-columns: repeat(12, 1fr);
-    max-width: 900px;
-    grid-gap: 1.25rem;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-
 /* UTILITY */
+/* I usually write cose with "object css" — making single class doin a specific thing (like grid, center, opactity etc.). Due to the fact the problem is so small, that will be overkill */
 .wrapper {
     max-width: 900px;
     margin-left: auto;
     margin-right: auto;
 }
 
+.col-5 {
+    grid-column: span 5;
+}
+.col-2 {
+    grid-column: span 2;
+}
+
+.flex-col {
+    display: flex;
+    flex-flow: column;
+    align-items: flex-start;
+}
+
+
 /* TYPOGRAPHY */
+h2 {
+    font-size: 2.25rem;
+    line-height: 1.5;
+    color: var(--color-primary);
+    font-weight: 600;
+    text-align: center; 
+    margin-top: var(--spacing-6); 
+    margin-bottom: var(--spacing-5); 
+}
+
 p {
     font-size: 1.25rem;
 }
@@ -47,41 +64,32 @@ p {
 a {
     text-decoration: none;
     color: inherit;
+    font-weight: 500;
+    border-radius: .5rem;
+    transition: all .3s ease-in-out;
+    padding: .5rem 1rem;
+    display: inline-block;
 }
-
-/* To change, cause it mess with the flex flow */
 a:hover:not(.btn-primary) {
-    font-style: italic;
-}
-
-
-/* SECTIONS */
-header {
-    display: flex;
-    justify-content: space-between;
-    margin-top: var(--spacing-3);
-    padding: 0 var(--spacing-5) 0;
-    align-items: center;
-    position: sticky;
-    top: 0;
-    background-color: var(--color-primary);
-}
-
-/* section {
-
-} */
-
-#hero {
-    height: 550px;
+    background-color: var(--color-primary-lighter);
 }
 
 
 /* ELEMENTS */
 .card {
-    /* grid-column: span 4; */
     height: 357px;
     background-color: #fff;
     border-radius: .5rem;
+    transition: all .2s ease-in-out;
+}
+.card:hover {
+    transform: translateY(-4px);
+}
+.card img {
+    height: 100%;
+    max-width: 100%;
+    overflow: hidden;
+    border-radius: .4rem;
 }
 
 .btn-primary {
@@ -94,14 +102,24 @@ header {
     line-height: 1;
     font-weight: 600;
 }
-
-.wave {
-    width: 100vw;
-    margin: 0;
-    margin-bottom: -6px; /* Don't understand why, but otherwise it place a little gap */
+.btn-primary:hover {
+    background-color: #625d52;
 }
 
+
 /* NAV */
+header {
+    display: flex;
+    justify-content: space-between;
+    margin-top: var(--spacing-3);
+    padding: 0 var(--spacing-5) 0;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    background-color: var(--color-primary);
+    z-index: 100; /* prevent image going over when hovered */
+}
+
 .logo {
     max-height: 3rem;
 }
@@ -109,25 +127,106 @@ header {
 nav {
     display: flex;
 }
-
 nav > a:not(:last-child) {
-    margin-right: var(--spacing-5);
+    margin-right: var(--spacing-4);
 }
 
 
 /* HERO */
+#hero {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    padding-top: var(--spacing-7);
+}
+
+svg text {
+    paint-order: stroke;
+    font-style: italic;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    fill: var(--color-neutral);
+    text-transform: uppercase;
+    font-size: 66px;
+}
+.ride {
+    stroke: var(--color-primary);
+    stroke-width: 8px; 
+    font-size: 181px;
+}
+
+.subscribe {
+    display: flex;
+    flex-flow: column;
+    margin-bottom: .5rem;
+}
+
+input {
+    border-radius: .5rem 0 0 .5rem ;
+    padding: var(--spacing-2);
+    background-color: #fff;
+    border: none;
+    margin: 0;
+    font-size: 1.25rem;
+    color: var(--color-neutral);
+    line-height: 16px;
+}
+
+.input-group {
+    display: flex;
+}
+.input-group > .btn-primary {
+    border-radius: 0 .5rem .5rem 0;
+    line-height: 1;
+    padding-top: 1.3rem; /* top is bigger than bottom due to extra px because of line-height */
+}
+
+.right {
+    position: relative;
+}
+.skater {
+    position: absolute;
+    top: 2rem;
+    right: 0;
+    z-index: 101;
+}
 
 
 /* CONTENT */
+.wave {
+    width: 100vw;
+    margin: 0;
+    margin-bottom: -6px; /* Don't understand why, but otherwise it place a little gap */
+}
+
 #content {
     background-color: var(--color-neutral);
-    height: 1000px;
+    padding-bottom: var(--spacing-8);
 }
 
 .card-grid {
-    grid-column: span 12;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: repeat(3, 1fr);
-    grid-gap: 3rem;
+    grid-gap: 2.75rem 3rem;
 }
+
+
+/* FOOTER */
+footer {
+    padding-top: var(--spacing-6);
+    padding-bottom: var(--spacing-5);
+}
+
+footer > .wrapper {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+}
+
+footer a {
+    line-height: 1.5;
+    margin-bottom: 1rem;
+}
+footer a:last-child {
+    margin-bottom: 0;
+}
+
+

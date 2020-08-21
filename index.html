@@ -25,35 +25,75 @@
         </a>
     </header>
 
-    <section id="hero">
-        HERO
+    <section id="hero" class="wrapper">
+        <div class="left">
+            <!-- Why svg? chrome doesn't render paint order on non-svg  -->
+            <svg viewBox="0 0 444 207" xmlns="http://www.w3.org/2000/svg">
+                <text class="time" x="0" y="55.8739">it's time to</text>
+                <text class="ride" x="0" y="179.338">ride</text>
+            </svg>
+            <p>
+                Join the raddest skate crew of the West Coast — we looking for videomakers, graphic designers and
+                fashion stylists.
+            </p>
+            <div class="subscribe">
+                <div class="input-group">
+                    <input type="email" id="mail" name="mail" placeholder="mymail@gmail.com">
+                    <a href="#" class="btn-primary">Subscribe</a>
+                </div>
+            </div>
+        </div>
+        <div class="right">
+            <img class="skater" src="./assets/img/Skater.png" alt="skater jumping">
+        </div>
     </section>
 
     <div class="wave">
-        <!-- Could be placed as inline svg -->
-        <!-- No alt because it's purely decorative -->
-        <img src="./assets/img/Wave.svg" alt="">
     </div>
 
     <section id="content">
+        <!-- Could also be placed as inline svg but there's no particularny need to do it (i choose not to animate it). As image, code is cleaner -->
+        <!-- No alt because it's purely decorative -->
+        <img src="./assets/img/Wave.svg" alt="">
         <div class="wrapper">
+            <h2>Our players</h2>
             <div class="card-grid">
-                <div class="card"></div>
-                <div class="card"></div>
-                <div class="card"></div>
-                <div class="card"></div>
-                <div class="card"></div>
-                <div class="card"></div>
-                <div class="card"></div>
-                <div class="card"></div>
-                <div class="card"></div>
+                <div class="card"><img src="https://source.unsplash.com/cSePx8642Is/400x400" /></div>
+                <div class="card"><img src="https://source.unsplash.com/UMOrfrVby6M/400x400" /></div>
+                <div class="card"><img src="https://source.unsplash.com/ISkeH2SLqNU/400x400" /></div>
+                <div class="card"><img src="https://source.unsplash.com/fHnM6I293_4/400x400" /></div>
+                <div class="card"><img src="https://source.unsplash.com/3YYiDD_4Xg4/400x400" /></div>
+                <div class="card"><img src="https://source.unsplash.com/1Wj3SLoQGcU/400x400" /></div>
+                <div class="card"><img src="https://source.unsplash.com/6rPugl6sVmY/400x400" /></div>
+                <div class="card"><img src="https://source.unsplash.com/igLQW_yY9oo/400x400" /></div>
+                <div class="card"><img src="https://source.unsplash.com/Yh2UPFrdYoU/400x400" /></div>
             </div>
         </div>
     </section>
 
-    <!-- <footer>
-        Footer
-    </footer> -->
+    <footer>
+        <div class="wrapper">
+            <div class="col-5 flex-col">
+                <a href="#">About us</a>
+                <a href="#">Our reel</a>
+                <a href="#">Join us</a>
+                <a href="#">Mentions</a>
+            </div>
+            <div class="col-5 flex-col">
+                <a href="#">Private Policy</a>
+                <a href="#">Sitemap</a>
+            </div>
+            <div class="col-2 flex-col">
+                <a href="#">Instagram</a>
+                <a href="#">Facebook</a>
+                <a href="#">Vimeo</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.5.0/gsap.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.5.0/ScrollTrigger.js"></script>
+    <script src="animation.js"></script>
 </body>
 
 </html>
